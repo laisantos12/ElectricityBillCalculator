@@ -2,7 +2,7 @@ const electron = require('electron');
 const url = require('url');
 const path = require('path');
 
-const { app, BrowserWindow, Menu } = electron;
+const { app, BrowserWindow, Menu, ipcMain } = electron;
 
 let mainWindow;
 let calculateWindow;
@@ -34,7 +34,11 @@ function createCalculateWindow() {
     calculateWindow = new BrowserWindow({
         width: 300,
         height: 200,
-        title: 'Calculate bill'
+        title: 'Calculate bill',
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false
+        }
     });
     //Garbage collection handle
     calculateWindow.on('close', function () {
@@ -49,6 +53,13 @@ function createCalculateWindow() {
     }));
 
 }
+
+//Catch amount:calculate
+ipcMain.on('amount:calculate', function (e, amount) {
+    console.log(amount);
+    mainWindow.webContents.send('amount:calculate', amount);
+    calculateWindow.close();
+})
 
 //Create menu template
 const mainMenuTemplate = [
