@@ -17,6 +17,10 @@ app.on('ready', function () {
         protocol: 'file',
         slashes: true
     }));
+    //Quit app when closed
+    mainWindow.on('closed', function () {
+        app.quit();
+    });
 
     //Build menu from template
     const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
@@ -28,11 +32,14 @@ app.on('ready', function () {
 function createCalculateWindow() {
     //Create new window
     calculateWindow = new BrowserWindow({
-        width: 200,
-        height: 300,
-        title: 'Please enter meter number'
+        width: 300,
+        height: 200,
+        title: 'Calculate bill'
     });
-
+    //Garbage collection handle
+    calculateWindow.on('close', function () {
+        calculateWindow = null;
+    });
 
     //Load html into window
     calculateWindow.loadURL(url.format({
@@ -51,7 +58,7 @@ const mainMenuTemplate = [
             {
                 label: 'Calculate Bill',
                 click() {
-                    creatCalculateWindow();
+                    createCalculateWindow();
                 }
 
             },
@@ -69,3 +76,29 @@ const mainMenuTemplate = [
         ]
     }
 ];
+
+//If mac, add empty object to menu
+if (process.platform == 'darwin') {
+    mainMenuTemplate.unshift({});
+}
+
+//Add developer tool item if not in prod
+if (process.env.NODE_ENV !== 'production') {
+    mainMenuTemplate.push({
+        label: 'Developer Tools',
+        submenu: [
+            {
+                label: 'Toggle DevTools',
+                accelerator: process.platform == 'darwin' ? 'Command+I' : 'Ctrl+I',
+                click(item, focusedWindow) {
+                    focusedWindow.toggleDevTools();
+
+                }
+            },
+            {
+                role: 'reolad'
+            }
+
+        ]
+    });
+}
