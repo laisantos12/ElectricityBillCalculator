@@ -7,11 +7,11 @@
 </head>
 
 <body>
-    <form>
+    <form id = "calculate-form">
         <div>
-            <label>Please Enter Number of Units Consumed</label>
-            <!-- <input type="text" name = "amout" id="amount" value = "" autofocus />
-            <input type="submit" name="submit1" value="submit" onclick="getamount()"/> -->
+            <label>Please Enter Meter Number</label>
+            <input type="text" name="amout" id="amount" value="" autofocus />
+            <!-- <input type="submit" name="submit1" value="submit" onclick="getamount()" /> -->
         </div>
         <button type="submit">Calculate</button>
     </form>
@@ -26,7 +26,11 @@
             e.preventDefault();
             const amount = document.querySelector('#amount').value;
             ipcRenderer.send('amount:calculate', amount);
+
+            // var bill = Number(document.getElementById)
         }
+
+        
     </script>
 </body>
 
