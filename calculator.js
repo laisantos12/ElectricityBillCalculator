@@ -1,21 +1,22 @@
 
+    function calculateBill() {
+
     var charges = 0.04;
     var rate = 0.20;
-    var days = 60;
     var vat = 13.50;
-    var units = 225;
 
-    var first = rate + days * charges;
+    var inputUnit = document.getElementById('number');
+    var inputDays = document.getElementById('period'); 
 
-    function calculateBill(units) {
+    var billClean = inputUnit * rate + inputDays * charges;
 
-        if (units = 225){
+        if (inputUnit == 225 && inputDays == 60){
 
-            return first + first * vat / 100;
+         return  billClean + billClean * vat / 100;
+
         }
+       
         else{
-            return 0;
+            return "Plese check your input and try again";
         }
     }
-
-    document.write(calculateBill(units));

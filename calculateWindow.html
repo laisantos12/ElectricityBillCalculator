@@ -20,10 +20,10 @@
         </div>
         <div>
             <label>This is your bill including 13.5% VAT</label>
-            <input type="text" name="period" id="period" value="" autofocus />
+            <input type="text" name="period" id="result" value="" autofocus />
             <!-- <input type="submit" name="submit1" value="submit" onclick="getamount()" /> -->
         </div>
-        <button type="submit">Calculate</button>
+        <button  onclick="calculateBill()">Calculate</button>
     </form>
     <script>
         const electron = require('electron');

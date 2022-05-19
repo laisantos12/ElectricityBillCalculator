@@ -1,14 +1,26 @@
 {
   "name": "electricitybillcalculator",
   "version": "1.0.0",
-  "description": "",
+  "description": "App created to calculate electricity bill  Using Electron framework, HTML, CSS and JavaScript  It refers to the last mark of Cross Platform Development module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "lais/layhene",
   "license": "ISC",
   "dependencies": {
-    "electron": "^18.2.3"
-  }
+    "electron": "^18.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laisantos12/ElectricityBillCalculator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/laisantos12/ElectricityBillCalculator/issues"
+  },
+  "homepage": "https://github.com/laisantos12/ElectricityBillCalculator#readme",
+  "keywords": [
+    "electricitybill",
+    "app"
+  ]
 }
