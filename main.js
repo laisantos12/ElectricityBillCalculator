@@ -4,7 +4,6 @@ const path = require('path');
 
 const { app, BrowserWindow, Menu, ipcMain } = electron;
 
-let mainWindow;
 let calculateWindow;
 
 
@@ -14,7 +13,7 @@ function calculateBill() {
     var rate = 0.20;
     var vat = 13.50;
 
-    var inputUnit = document.getElementById('number');
+    var inputUnit = document.getElementById('number').attributes;
     var inputDays = document.getElementById('period'); 
 
     var billClean = inputUnit * rate + inputDays * charges;
