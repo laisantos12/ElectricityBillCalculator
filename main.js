@@ -13,20 +13,25 @@ function calculateBill() {
     var rate = 0.20;
     var vat = 13.50;
 
-    var inputUnit = document.getElementById('number').attributes;
-    var inputDays = document.getElementById('period'); 
+    const inputUnit = document.getElementById('number').value;
+    const inputDays = document.getElementById('period').value; 
 
     var billClean = inputUnit * rate + inputDays * charges;
 
-        if (inputUnit == 225 && inputDays == 60){
+    noVat = inputUnit * rate/100 + inputDays * charges/100;
+    plusVat = noVat + noVat * vat/100;
 
-         return  billClean + billClean * vat / 100;
+    document.getElementById('result').style.display = plusVat;
 
-        }
+        //if (inputUnit == 225 && inputDays == 60){
+
+        // return  billClean + billClean * vat / 100;
+
+       // }
        
-        else{
-            return "Plese check your input and try again";
-        }
+      //  else{
+       //     return "Plese check your input and try again";
+      //  }
     }
 
 //Listen for app to be ready
