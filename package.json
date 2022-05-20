@@ -4,7 +4,8 @@
   "description": "App created to calculate electricity bill  Using Electron framework, HTML, CSS and JavaScript  It refers to the last mark of Cross Platform Development module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
   },
   "author": "lais/layhene",
   "license": "ISC",
