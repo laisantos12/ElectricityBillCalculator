@@ -22,16 +22,6 @@ function calculateBill() {
     plusVat = noVat + noVat * vat/100;
 
     document.getElementById('result').style.display = plusVat;
-
-        //if (inputUnit == 225 && inputDays == 60){
-
-        // return  billClean + billClean * vat / 100;
-
-       // }
-       
-      //  else{
-       //     return "Plese check your input and try again";
-      //  }
     }
 
 //Listen for app to be ready
